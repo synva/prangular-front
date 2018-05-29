@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css');
+
+// common
+html, body {
+  font-family: 'Rounded Mplus 1c';
+  margin: 0;
+  padding: 0;
+}
+.page-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
