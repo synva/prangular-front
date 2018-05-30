@@ -12,7 +12,6 @@ export class ApiService {
   get (api, params = {}) {
     const apiObservable = new Observable((observer) => {
       const httpOptions = {
-        withCredentials: true,
         headers: new HttpHeaders({
           'Content-Type': 'application/json'
         }),

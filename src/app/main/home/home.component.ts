@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from "rxjs/Observable";
+import { Router } from '@angular/router';
 
 import { ApiService } from '../../services/api.service';
 import { UserService } from '../../services/user.service';
+import { HeroService } from '../../services/hero.service';
 
 @Component({
   selector: 'app-home',
@@ -9,10 +12,13 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  hero$: Observable<any>;
 
   constructor(
+    private router: Router,
     private apiService: ApiService,
-    private userService: UserService
+    public userService: UserService,
+    private heroService: HeroService
   ) {
   }
 
@@ -20,9 +26,7 @@ export class HomeComponent implements OnInit {
   }
 
   getData () {
-    this.apiService.get('/public/getData', {input: 'testInput1'}).subscribe(response => {
-      console.log('response:', JSON.stringify(response));
-    });
+    this.hero$ = this.heroService.getHero();
   }
 
   postData () {
@@ -31,15 +35,9 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  register () {
-    this.userService.register();
-  }
-
-  login () {
-    this.userService.login();
-  }
-
   logout () {
-    this.userService.logout();
+    this.userService.logout(() => {
+      this.router.navigate(['/login']);
+    });
   }
 }

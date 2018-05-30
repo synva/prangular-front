@@ -1,8 +1,15 @@
 <p>
   home works!
 </p>
+<div *ngIf="hero$ | async as hero">
+  {{hero.col}}
+</div>
+<p>
+  {{userService?.user?.id}}
+</p>
 <button (click)="getData()">get</button>
 <button (click)="postData()">post</button>
-<button (click)="register()">register</button>
-<button (click)="login()">login</button>
 <button (click)="logout()">logout</button>
+<p>
+  <a routerLink="/my">my</a>
+</p>

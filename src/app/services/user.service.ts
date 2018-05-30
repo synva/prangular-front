@@ -4,28 +4,45 @@ import { ApiService } from './api.service';
 
 @Injectable()
 export class UserService {
-  private user: User;
+  public user: User;
 
   constructor(private apiService: ApiService) {
+    this.user = new User({});
   }
 
-  register() {
-    this.apiService.post('/register', {user: {_id: 'rrrr', password: 'rrrrrr'}}).subscribe((response: any) => {
-      console.log('registered:', JSON.stringify(response));
-      this.apiService.post('/authenticate', {username: response.user._id, password: response.user.password}).subscribe(response => {
-        console.log('authenticated:', JSON.stringify(response));
-        this.login();
-      });
+  register(next) {
+    if (!this.user.isAnonymous) this.user.logout();
+    this.apiService.post('/register', {user: {_id: 'rrrr', password: 'rrrrrr'}}).subscribe((data: any) => {
+      this.authenticate(next);
     });
   }
-  login() {
-    this.apiService.post('/authenticate', {username: 'rrrr', password: 'rrrrrr'}).subscribe(response => {
-    console.log('logined:', JSON.stringify(response));
-  });
+  authenticate(next) {
+    if (!this.user.isAnonymous) return;
+    this.apiService.post('/authenticate', {username: 'rrrr', password: 'rrrrrr'}).subscribe((data: any) => {
+      if (data && data.user) {
+        this.user.login(data.user);
+        next(true);
+      } else {
+        next(false);
+      }
+    });
   }
-  logout() {
-    this.apiService.get('/logout').subscribe(response => {
-      console.log('logouted:', JSON.stringify(response));
+  login(next) {
+    if (!this.user.isAnonymous) return;
+    this.apiService.get('/login').subscribe((data: any) => {
+      if (data && data.user) {
+        this.user.login(data.user);
+        next(true);
+      } else {
+        next(false);
+      }
+    });
+  }
+  logout(next) {
+    if (this.user.isAnonymous) return;
+    this.apiService.get('/logout').subscribe(data => {
+      this.user.logout();
+      next();
     });
   }
 }

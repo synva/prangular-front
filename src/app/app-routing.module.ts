@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LoadingComponent } from './loading/loading.component';
+// component
+import { LoginComponent } from './login/login.component';
 
 import { MainComponent } from './main/main.component';
 import { HomeComponent } from './main/home/home.component';
@@ -9,10 +10,13 @@ import { MyComponent } from './main/my/my.component';
 
 import { ErrorComponent } from './error/error.component';
 
+// utils
+import { AuthGuard } from './utils/authGuard';
+
 const routes: Routes = [
   {
-    path: 'loading',
-    component: LoadingComponent
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: '',
@@ -20,11 +24,13 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent
+        component: HomeComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'my',
-        component: MyComponent
+        component: MyComponent,
+        canActivate: [AuthGuard]
       }
     ]
   },
