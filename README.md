@@ -34,16 +34,12 @@ yarn install
 
 ``` bash
 cd /your/path/like/desktop/prangular-front
-npm run dev
+ng serve
 ```
 
 this only boots frontend, you also need to boot backend even development enviroment.
 
 ## 5. development
-
-``` bash
-ng serve
-```
 
 ## 6. deploy to production enviroment
 
