@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -18,12 +18,20 @@ import { ErrorComponent } from './error/error.component';
 
 // services
 import { ApiService } from './services/api.service';
+import { MessageService } from './services/message.service';
 import { UserService } from './services/user.service';
 import { HeroService } from './services/hero.service';
 
 // utils
 import { Interceptor } from './utils/interceptor';
 import { AuthGuard } from './utils/authGuard';
+
+// APP initialize
+export function init_app(messageService: MessageService) {
+  return async () => {
+    await messageService.getMessage();
+  }
+}
 
 @NgModule({
   declarations: [
@@ -47,6 +55,13 @@ import { AuthGuard } from './utils/authGuard';
     },
     AuthGuard,
     ApiService,
+    MessageService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: init_app,
+      deps: [MessageService],
+      multi: true
+    },
     UserService,
     HeroService
   ],

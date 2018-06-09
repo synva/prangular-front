@@ -3,6 +3,7 @@ import { Observable } from "rxjs/Observable";
 import { Router } from '@angular/router';
 
 import { ApiService } from '../../services/api.service';
+import { MessageService } from '../../services/message.service';
 import { UserService } from '../../services/user.service';
 import { HeroService } from '../../services/hero.service';
 
@@ -17,6 +18,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private apiService: ApiService,
+    public messageService: MessageService,
     public userService: UserService,
     private heroService: HeroService
   ) {
