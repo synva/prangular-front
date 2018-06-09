@@ -38,9 +38,7 @@ describe('HomeComponent', () => {
         {provide: ApiService, useValue: mockApiService},
         {provide: MessageService, useValue: mockMessageService},
         {provide: UserService, useValue: mockUserService},
-        {provide: HeroService, useValue: mockHeroService},
-        // UserService,
-        // HeroService,
+        {provide: HeroService, useValue: mockHeroService}
       ],
       declarations: [ HomeComponent ]
     })

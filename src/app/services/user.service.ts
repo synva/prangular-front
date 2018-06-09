@@ -5,9 +5,11 @@ import { ApiService } from './api.service';
 @Injectable()
 export class UserService {
   public user: User;
+  public sidebarOpen: Boolean;
 
   constructor(private apiService: ApiService) {
     this.user = new User({});
+    this.sidebarOpen = false;
   }
 
   register(next) {

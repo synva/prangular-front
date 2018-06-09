@@ -1,9 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
+// routing
 import { AppRoutingModule } from './app-routing.module';
+
+// material design
+import { MaterialModule } from './material.module';
 
 // components
 import { AppComponent } from './app.component';
@@ -44,8 +49,13 @@ export function init_app(messageService: MessageService) {
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MaterialModule
+  ],
+  exports: [
+    MaterialModule
   ],
   providers: [
     {

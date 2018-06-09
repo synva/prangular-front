@@ -4,9 +4,11 @@ import { User } from '../models/user.model';
 @Injectable()
 export class MockUserService {
   public user: User;
+  public sidebarOpen: Boolean;
 
   constructor() {
     this.user = new User({});
+    this.sidebarOpen = false;
   }
 
   register(next) {
