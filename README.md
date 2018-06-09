@@ -39,9 +39,21 @@ ng serve
 
 this only boots frontend, you also need to boot backend even development enviroment.
 
-## 5. development
+## 5. unit test
 
-## 6. deploy to production enviroment
+``` bash
+cd /your/path/like/desktop/prangular-front
+ng test
+```
+
+## 6. e2e test
+
+``` bash
+cd /your/path/like/desktop/prangular-front
+ng e2e
+```
+
+## 7. deploy to production enviroment
 
 ``` bash
 cd /your/path/like/desktop/prangular-front
