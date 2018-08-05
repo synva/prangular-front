@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    $('.test').text('jquery test');
   }
 
   getData () {

@@ -43,7 +43,10 @@ this only boots frontend, you also need to boot backend even development envirom
 
 ``` bash
 cd /your/path/like/desktop/prangular-front
+# test
 ng test
+# coverage
+ng test --code-coverage
 ```
 
 ## 6. e2e test
