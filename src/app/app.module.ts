@@ -11,6 +11,9 @@ import { AppRoutingModule } from './app-routing.module';
 // material design
 import { MaterialModule } from './material.module';
 
+// common
+import { AxcelModule } from './common/axcel/axcel.module';
+
 // components
 import { AppComponent } from './app.component';
 
@@ -36,7 +39,7 @@ import { AuthGuard } from './utils/authGuard';
 export function init_app(messageService: MessageService) {
   return async () => {
     await messageService.getMessage();
-  }
+  };
 }
 
 @NgModule({
@@ -53,10 +56,12 @@ export function init_app(messageService: MessageService) {
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    MaterialModule
+    MaterialModule,
+    AxcelModule
   ],
   exports: [
-    MaterialModule
+    MaterialModule,
+    AxcelModule
   ],
   providers: [
     {

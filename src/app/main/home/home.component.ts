@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from "rxjs/Observable";
+import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 
 import { ApiService } from '../../services/api.service';
@@ -25,20 +25,20 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    $('.test').text('jquery test');
+    // $('.test').text('jquery test');
   }
 
-  getData () {
+  getData() {
     this.hero$ = this.heroService.getHero();
   }
 
-  postData () {
-    this.apiService.post('/public/postData', {input: 'testInput2'}).subscribe(response => {
+  postData() {
+    this.apiService.post('/public/postData', { input: 'testInput2' }).subscribe(response => {
       console.log('response:', JSON.stringify(response));
     });
   }
 
-  logout () {
+  logout() {
     this.userService.logout(() => {
       this.router.navigate(['/login']);
     });
