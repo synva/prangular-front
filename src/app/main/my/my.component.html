@@ -1,4 +1,4 @@
-<div style="width: 800px; height: 400px; margin: 20px;">
+<!-- <div style="width: 800px; height: 400px; margin: 20px;">
   <axcel-table [headerHeight]="40" [dataSources]="datas">
     <axcel-header frozen>ID</axcel-header>
     <axcel-header frozen>名前</axcel-header>
@@ -18,4 +18,102 @@
     <axcel-column [bind]="'annual'"></axcel-column>
     <axcel-column [bind]="'bank'"></axcel-column>
   </axcel-table>
+</div> -->
+<div style="width: 800px; height: 200px;">
+  <div class="table-wrapper">
+    <div class="table-top-left">No.</div>
+    <div #headerScroll class="table-header-wrapper">
+      <div class="table-header">
+        <div>header1</div>
+        <div>header2</div>
+        <div>header3</div>
+        <div>header4</div>
+        <div>header1</div>
+        <div>header2</div>
+        <div>header3</div>
+        <div>header4</div>
+        <div>header1</div>
+        <div>header2</div>
+        <div>header3</div>
+        <div>header4</div>
+        <div>header1</div>
+        <div>header2</div>
+        <div>header3</div>
+        <div>header4</div>
+        <div>header1</div>
+        <div>header2</div>
+        <div>header3</div>
+        <div>header4</div>
+      </div>
+    </div>
+    <div #rulerScroll class="table-ruler">
+      <div>雅楽</div>
+      <div>雅楽</div>
+      <div>雅楽</div>
+      <div>雅楽</div>
+      <div>雅楽</div>
+      <div>雅楽</div>
+      <div>雅楽</div>
+      <div>雅楽</div>
+      <div>雅楽</div>
+      <div>雅楽</div>
+      <div>雅楽</div>
+      <div>雅楽</div>
+      <div>雅楽</div>
+      <div>雅楽</div>
+      <div>雅楽</div>
+      <div>雅楽</div>
+      <div>雅楽</div>
+      <div>雅楽</div>
+      <div>雅楽</div>
+      <div>雅楽</div>
+      <div>雅楽</div>
+      <div>雅楽</div>
+    </div>
+    <div #contentScroll class="table-content-wrapper" (scroll)="onContentScroll()">
+      <div class="table-content">
+        <div class="table-column">
+          <div>雅楽</div>
+          <div>雅楽</div>
+          <div>雅楽</div>
+          <div>雅楽</div>
+          <div>雅楽</div>
+          <div>雅楽</div>
+          <div>雅楽</div>
+          <div>雅楽</div>
+          <div>雅楽</div>
+          <div>雅楽</div>
+          <div>雅楽</div>
+          <div>雅楽</div>
+          <div>雅楽</div>
+          <div>雅楽</div>
+          <div>雅楽</div>
+          <div>雅楽</div>
+          <div>雅楽</div>
+          <div>雅楽</div>
+          <div>雅楽</div>
+          <div>雅楽</div>
+          <div>雅楽</div>
+          <div>雅楽</div>
+        </div>
+        <div>test some.</div>
+        <div>test some.</div>
+        <div>test some.</div>
+        <div>test some.</div>
+        <div>test some.</div>
+        <div>test some.</div>
+        <div>test some.</div>
+        <div>test some.</div>
+        <div>test some.</div>
+        <div>test some.</div>
+        <div>test some.</div>
+        <div>test some.</div>
+        <div>test some.</div>
+        <div>test some.</div>
+        <div>test some.</div>
+        <div>test some.</div>
+        <div>test some.</div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 import { AxcelData } from '../../models/axcel.model';
 
@@ -8,6 +8,9 @@ import { AxcelData } from '../../models/axcel.model';
   styleUrls: ['./my.component.scss']
 })
 export class MyComponent implements OnInit {
+  @ViewChild('headerScroll') private headerScroll: ElementRef;
+  @ViewChild('rulerScroll') private rulerScroll: ElementRef;
+  @ViewChild('contentScroll') private contentScroll: ElementRef;
   datas: AxcelData[];
 
   constructor() {
@@ -51,6 +54,11 @@ export class MyComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  onContentScroll() {
+    this.headerScroll.nativeElement.scrollLeft = this.contentScroll.nativeElement.scrollLeft;
+    this.rulerScroll.nativeElement.scrollTop = this.contentScroll.nativeElement.scrollTop;
   }
 
 }
